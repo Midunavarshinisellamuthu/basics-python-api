@@ -11,6 +11,12 @@ doc_events = {
         "validate": "library_management.api.custom_logic"
     }
 }
+
+scheduler_events = {
+    "daily": [
+        "library_management.tasks.daily_maintenance"
+    ]
+}
 # Apps
 # ------------------
 
