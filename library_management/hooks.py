@@ -4,7 +4,13 @@ app_publisher = "Kavi"
 app_description = "Library Management System"
 app_email = "kavi@gmail.com"
 app_license = "mit"
+app_include_js = "custom_desk.bundle.js"
 
+doc_events = {
+    "User": {
+        "validate": "library_management.api.custom_logic"
+    }
+}
 # Apps
 # ------------------
 
