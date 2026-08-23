@@ -1,0 +1,29 @@
+<h2>Library Members Report</h2>
+
+<table border="1" cellpadding="6" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Member ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Full Name</th>
+            <th>Email Address</th>
+            <th>Phone</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% for (var i = 0; i < data.length; i++) { %>
+        <tr>
+            <td><%= data[i].name %></td>
+            <td><%= data[i].first_name %></td>
+            <td><%= data[i].last_name %></td>
+            <td><%= data[i].full_name %></td>
+            <td><%= data[i].email_address %></td>
+            <td><%= data[i].phone %></td>
+            <td><%= dateutil.str_to_user(data[i].date) %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
