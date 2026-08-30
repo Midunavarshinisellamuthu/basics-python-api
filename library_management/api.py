@@ -1,5 +1,5 @@
 import frappe
-
+from frappe.rate_limiter import rate_limit
 
 def custom_logic(doc, method):
     frappe.msgprint("Hook executed!")
@@ -76,3 +76,20 @@ def get_recent_todos():
         "timestamp": timestamp,
         "records": todos
     }
+
+#Javascript API
+@frappe.whitelist()
+def create_task(task_subject):
+    task = frappe.new_doc("Task")
+    task.subject = task_subject
+    task.save()
+
+    return task.name
+
+@frappe.whitelist(allow_guest=True)
+@rate_limit(limit=5, seconds=60)
+def limited_greeting():
+    logger = frappe.logger()
+    logger.info("Endpoint called.")
+
+    frappe.response["message"] = "Hello, Rate Limited World!"
